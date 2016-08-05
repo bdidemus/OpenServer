@@ -88,7 +88,7 @@ namespace OpenServer
 
                     Console.WriteLine("Incoming connection from: ", incomingConnection.RemoteEndPoint.ToString() );
 
-                    mConnectionManager.handleConnection(incomingConnection);
+                    mConnectionManager.HandleConnection(incomingConnection);
 				}
 
 			} catch (Exception e) {
@@ -115,6 +115,14 @@ namespace OpenServer
 				return mIsRunning;
 			}
 		}
+
+        public ConnectionManager ConnectionManager
+        {
+            get
+            {
+                return mConnectionManager;
+            }
+        }
 
 		private bool mIsRunning = false;
 

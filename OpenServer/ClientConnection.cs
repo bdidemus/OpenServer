@@ -10,16 +10,33 @@ namespace OpenServer
             mSocket = socket;
         }
 
-        public byte[] recieveData()
+        public byte[] RecieveData(uint chunkSize)
         {
-            byte[] data = null;
+            byte[] data = new byte[chunkSize];
+
+            mSocket.Receive(data);
 
             return data;
         }
 
-        public void closeConnection()
+        public string RecieveString()
+        {
+            String inString = null;
+
+            return null;
+        }
+
+        public void CloseConnection()
         {
             mSocket.Close();
+        }
+
+        public bool IsConnected
+        {
+            get
+            {
+                return mSocket.Connected;
+            }
         }
 
         private Socket mSocket;
