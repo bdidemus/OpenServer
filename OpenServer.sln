@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenServer", "OpenServer\Op
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenServerTest", "OpenServerTest\OpenServerTest.csproj", "{C7100635-B708-48DA-B9BC-9F6939D299AD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenServerClientTest", "OpenServerClientTest\OpenServerClientTest.csproj", "{DF83E615-2156-4CD8-97BA-9DB5C6B31985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenClient", "OpenClient\OpenClient.csproj", "{D63BF265-C76C-48F4-B3F1-B0AAF6B5B61A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,5 +23,13 @@ Global
 		{C7100635-B708-48DA-B9BC-9F6939D299AD}.Debug|x86.Build.0 = Debug|x86
 		{C7100635-B708-48DA-B9BC-9F6939D299AD}.Release|x86.ActiveCfg = Release|x86
 		{C7100635-B708-48DA-B9BC-9F6939D299AD}.Release|x86.Build.0 = Release|x86
+		{D63BF265-C76C-48F4-B3F1-B0AAF6B5B61A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D63BF265-C76C-48F4-B3F1-B0AAF6B5B61A}.Debug|x86.Build.0 = Debug|Any CPU
+		{D63BF265-C76C-48F4-B3F1-B0AAF6B5B61A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D63BF265-C76C-48F4-B3F1-B0AAF6B5B61A}.Release|x86.Build.0 = Release|Any CPU
+		{DF83E615-2156-4CD8-97BA-9DB5C6B31985}.Debug|x86.ActiveCfg = Debug|x86
+		{DF83E615-2156-4CD8-97BA-9DB5C6B31985}.Debug|x86.Build.0 = Debug|x86
+		{DF83E615-2156-4CD8-97BA-9DB5C6B31985}.Release|x86.ActiveCfg = Release|x86
+		{DF83E615-2156-4CD8-97BA-9DB5C6B31985}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 EndGlobal
