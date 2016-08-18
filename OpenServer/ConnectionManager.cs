@@ -33,7 +33,7 @@ namespace OpenServer
             {
                 if (!((ClientConnection)mClientConnections[i]).IsConnected)
                 {
-                    ((ClientConnection)mClientConnections).CloseConnection();
+					((ClientConnection)mClientConnections[i]).CloseConnection();
                     mClientConnections.Remove(i);
                     mThreads.Remove(i);
                     i--;
