@@ -86,7 +86,7 @@ namespace OpenServer
 
                     Socket incomingConnection = listener.Accept();
 
-                    Console.WriteLine("Incoming connection from: ", incomingConnection.RemoteEndPoint.ToString() );
+                    Console.WriteLine("Incoming connection from: " + incomingConnection.RemoteEndPoint.ToString() );
 
                     mConnectionManager.HandleConnection(incomingConnection);
 				}

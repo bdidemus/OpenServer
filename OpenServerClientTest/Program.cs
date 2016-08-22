@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace OpenServerClientTest
 {
@@ -6,7 +7,38 @@ namespace OpenServerClientTest
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            TestClient testClient = new TestClient();
+            testClient.IPAddressString = "192.168.63.60";
+            testClient.Port = 3383;
+
+            try
+            {
+                testClient.Connect();
+
+                byte[] testData;
+                string testString = "I'm Mr.MeSeeks. Look at me!";
+
+                testData = Encoding.UTF8.GetBytes(testString.ToCharArray());
+
+                testClient.SendData(testData);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine( ex.ToString() );
+            }
+            finally
+            {
+                try
+                {
+                    testClient.Disconnect();
+                }
+                catch( Exception ex )
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+            }
+
+            Console.ReadKey();
         }
     }
 }

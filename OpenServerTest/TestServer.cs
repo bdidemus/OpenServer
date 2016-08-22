@@ -10,7 +10,6 @@ namespace OpenServerTest
         public TestServer()
         {
             mServer = new Server(3383, new AcceptNewClientDelegate(AcceptNewClient));
-            mServer.StartServer();
         }
 
         public static void AcceptNewClient(ClientConnection ClientConnection)
@@ -19,6 +18,11 @@ namespace OpenServerTest
 
             Client localClient = new Client(ClientConnection);
             localClient.Listen();
+        }
+
+        public void StartSrver()
+        {
+            mServer.StartServer();
         }
     }
 }

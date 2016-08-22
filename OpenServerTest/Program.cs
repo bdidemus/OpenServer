@@ -7,8 +7,8 @@ namespace OpenServerTest
     {
         public static void Main(string[] args)
         {
-
-        }
-          
+            TestServer testServer = new TestServer();
+            testServer.StartSrver();
+        } 
     }
 }

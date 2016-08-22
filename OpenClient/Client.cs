@@ -12,6 +12,10 @@ namespace OpenClient
         private Socket socket;
 		private byte[] incomingBuffer;
 
+        public Client()
+        {
+        }
+
         public Client(IPAddress ipAddress, int port)
         {
             this.ipAddress = ipAddress;
@@ -28,13 +32,37 @@ namespace OpenClient
 			{
 				this.ipAddress = value;
 			}
-
         }
 
-		public bool setIPAddressFromString(String address)
-		{
-			return IPAddress.TryParse(address, out this.ipAddress);
-		}
+        public String IPAddressString
+        {
+            get
+            {
+                return (this.ipAddress != null ) ? this.ipAddress.ToString() : string.Empty;
+            }
+            set
+            {
+                IPAddress.TryParse(value, out this.ipAddress);
+            }
+        }
+
+        public String RemoteHostName
+        {
+            set
+            {
+                IPHostEntry hosts = Dns.GetHostEntry(value);
+
+                for( int i = 0; i < hosts.AddressList.Length; i++)
+                {
+                    IPAddress address = hosts.AddressList[i];
+                    if( address.AddressFamily == AddressFamily.InterNetwork )
+                    {
+                        this.IPAddress = address;
+                        break;
+                    }
+                }
+            }
+        }
 
         public int Port
         {
@@ -98,7 +126,7 @@ namespace OpenClient
 
         public void Connect()
         {
-            if (this.socket.Connected)
+            if (this.socket != null && this.socket.Connected)
             {
                 throw new Exception("Client is already connected!");
             }
@@ -120,7 +148,7 @@ namespace OpenClient
 
         public void SendData(byte[] data)
         {
-			if (this.socket.Connected) 
+			if (this.socket != null && !this.socket.Connected) 
 			{
 				throw new Exception ("Connection is closed");
 			}
