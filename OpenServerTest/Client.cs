@@ -15,14 +15,18 @@ namespace OpenServerTest
 
         public void Listen()
         {
-            while (mAlive && mClientConnection.IsConnected)
+            while (mAlive && mClientConnection.IsConnected && 
+                mClientConnection.HasData)
             {
-                byte[] incomingData = mClientConnection.RecieveData(1024);
+                string incomingData = mClientConnection.RecieveString();
 
-                Console.WriteLine("Recieved ", incomingData.Length.ToString(), " bytes");
+                Console.WriteLine("Recieved: " + incomingData);
             }
+        }
 
-            Console.WriteLine("Client connection closed");
+        public void Send()
+        {
+            //TODO: Send something
         }
 
         public bool IsAlive

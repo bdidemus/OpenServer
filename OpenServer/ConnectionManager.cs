@@ -20,6 +20,8 @@ namespace OpenServer
 
             mThreads.Add(thread);
             mClientConnections.Add(clientConnection);
+
+            thread.Start();
         }
 
         public void Broadcast(byte[] data)

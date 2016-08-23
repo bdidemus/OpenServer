@@ -11,7 +11,7 @@ namespace OpenServerClientTest
     {
         public override void HandleIncomingData(Byte[] data)
         {
-            Console.WriteLine("Data Incoming");
+            Console.WriteLine("Data Incoming!");
         }
     }
 }

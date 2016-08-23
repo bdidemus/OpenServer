@@ -21,6 +21,20 @@ namespace OpenServerClientTest
                 testData = Encoding.UTF8.GetBytes(testString.ToCharArray());
 
                 testClient.SendData(testData);
+
+                bool quit = false;
+                while( !quit )
+                {
+                    if( testClient.HasDataAvailable )
+                    {
+                        testClient.RecieveData();
+                    }
+                    else
+                    {
+                       System.Threading.Thread.Sleep(1000);
+                    }
+
+                }
             }
             catch(Exception ex)
             {

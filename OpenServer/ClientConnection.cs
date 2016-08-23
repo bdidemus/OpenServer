@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Sockets;
+using System.Text;
 
 namespace OpenServer
 {
@@ -21,14 +22,27 @@ namespace OpenServer
 
         public string RecieveString()
         {
-            String inString = null;
+            String inString = string.Empty;
 
-            return null;
+            while( this.HasData )
+            {
+                inString += Encoding.UTF8.GetString(this.RecieveData(1024));
+            }
+
+            return inString;
         }
 
         public void CloseConnection()
         {
             mSocket.Close();
+        }
+
+        public bool HasData
+        {
+            get
+            {
+                return mSocket.Available > 0;
+            }
         }
 
         public bool IsConnected
