@@ -118,7 +118,7 @@ namespace OpenClient
 
 				for (int i = 0; i < state.Buffers.Count; i++) 
 				{
-					
+					//TODO: build buffer
 				}
 			}
 				
